@@ -1,0 +1,31 @@
+server:
+  port: 8089
+
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema-h2.sql
+    data: classpath:db/data-h2.sql
+    url: jdbc:h2:mem:test
+    username: root
+    password: test
+
+mybatis-plus:
+  mapper-locations: classpath*:com/heyx/tool/color/dao/**/*.xml
+  type-aliases-package: com.heyx.tool.color.pojo
+  configuration:
+    map-underscore-to-camel-case: true #采用驼峰命名 映射下划线字段配置
+
+swagger:
+  enabled: true
+  base-path: /api/**
+  basePackage: com.heyx.tool.color
+  title: Swagger
+  description:
+  version: V1.0
+
+# 文件存储路径
+web:
+  file:
+    root: /data/color/
