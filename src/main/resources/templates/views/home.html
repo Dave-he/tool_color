@@ -6,17 +6,17 @@
 </head>
 <body>
 <div id="content" style="background-color: #fff;">
-    <div style="width: 10px;height: 10px;background-color:#FFFFFF">测试</div>
+    <div style="width: 1000px;height: 50px;background-color:#FFFFFF">测试</div>
 </div>
 <script src="../js/jquery-3.2.1.min.js"></script>
 <script>
     $.ajax({
-        url: 'api/color/v1/pc/value/random?max=100',
+        url: 'api/color/v1/pc/value/random?max=20',
         type: 'get',
         success: function (res) {
             var str ='';
             $.each(res.data, function (i, item) {
-                str+='<div style="width: 100px;height:10px;background-color:'+ item+'"></div>';
+                str+='<div style="width: 1000px;height:10px;background-color:'+ item+'"></div>';
             });
             $('#content').append(str);
         }
