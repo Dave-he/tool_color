@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="content" style="background-color: #fff;">
+    <div style="width: 10px;height: 10px;background-color:#FFFFFF">测试</div>
+</div>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    $.ajax({
+        url: 'api/color/v1/pc/value/random?max=100',
+        type: 'get',
+        success: function (res) {
+            var str ='';
+            $.each(res.data, function (i, item) {
+                str+='<div style="width: 100px;height:10px;background-color:'+ item+'"></div>';
+            });
+            $('#content').append(str);
+        }
+    });
+</script>
+</body>
+</html>

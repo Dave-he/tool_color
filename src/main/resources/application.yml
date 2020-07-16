@@ -1,8 +1,15 @@
 server:
   port: 8089
 
-# DataSource Config
+
 spring:
+  #≈‰÷√ƒ£∞Â
+  thymeleaf:
+    encoding: utf-8
+    cache: false
+    servlet:
+      content-type: text/html
+  # DataSource Config
   datasource:
     driver-class-name: org.h2.Driver
     schema: classpath:db/schema-h2.sql
@@ -20,7 +27,7 @@ mybatis-plus:
 swagger:
   enabled: true
   base-path: /api/**
-  basePackage: com.heyx.tool.color
+  basePackage: com.heyx.tool.color.route.api
   title: Swagger
   description:
   version: V1.0

@@ -1,4 +1,4 @@
-package com.heyx.tool.color.route;
+package com.heyx.tool.color.route.api;
 
 import com.heyx.tool.color.common.constant.SystemConst;
 import com.heyx.tool.color.common.system.ColorUtils;
@@ -28,7 +28,13 @@ public class ValueCtr {
             @RequestParam(name = "g", defaultValue = "256", required = false) Integer g,
             @RequestParam(name = "b", defaultValue = "256", required = false) Integer b
     ) {
-        return ResponseUtils.getSuccessResponseJoData(ColorUtils.getAllColor(r,g,b));
+        return ResponseUtils.getSuccessResponseJoData(ColorUtils.getAllColor(r, g, b));
     }
-
+    @GetMapping("/random")
+    @ApiOperation(value = "查询随机色值")
+    public ResponseUtils random(
+            @RequestParam(name = "max", defaultValue = "1", required = false) Integer max
+    ) {
+        return ResponseUtils.getSuccessResponseJoData(ColorUtils.getRandomColorList(max));
+    }
 }
